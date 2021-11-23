@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createBoard();
 
+
 })
 
 // Active Start game - Timer
