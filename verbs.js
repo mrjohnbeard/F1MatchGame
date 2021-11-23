@@ -1,6 +1,3 @@
-// This will be a memory game for solo play only. 
-// Basic layout will be 20 cards on a game board, 10 sets of 2 of the same cards; in a 4 column x 5 row style.
-// The cards will have images on both the front (specific Team) and back (generic).
 document.addEventListener('DOMContentLoaded', () => {
 
 const teamNames = [
@@ -86,20 +83,28 @@ const teamNames = [
             image: 'image/Willams.png',
         }
     ];
-
-
-
-
-// Create Game Board
-
+teamNames.sort(() => 0.5 - Math.random())
 const board = document.querySelector('.gameBoard');
+
+var currentChoice = [];
+var currentChoiceId = [];
 
 function createBoard() { 
     for (let i = 0; i < teamNames.length; i++) {
         var card = document.createElement('img');
         card.setAttribute('src', 'images/realLogo.png');
-        card.setAttribute('date-id', i);
+        card.setAttribute('data-id', i);
+        card.addEventListener('click', flippedCard);
         board.appendChild(card);
+        }
+    }
+
+function flippedCard(){
+    var cardId = this.getAttribute('data-id');
+    if (this.getAttribute('src') != 'images/fakeLogo.png'){
+        currentChoice.push(teamNames[cardId].name);
+        currentChoiceId.push(cardId);
+        this.setAttribute('src', teamNames[cardId].image);
         }
     }
 
@@ -107,18 +112,8 @@ function createBoard() {
 
 })    
 
-
-
-// Shuffle
-// teamNames.sort(() => 0.5 - Math.random())
-
-// Cards Face Down
-
 // Active Start game - Timer
 
-// On Click -- 
-
-// Face up and check for cardMatch
 // If cardMatch is true, they will remain face up until the game is over. Player continues selection.
 // If cardMatch is false, they will return to their face down postion. Player continues selection.
 

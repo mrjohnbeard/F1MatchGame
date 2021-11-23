@@ -1,3 +1,18 @@
+This will be a memory game for solo play only. 
+Basic layout will be 20 cards on a game board, 10 sets of 2 of the same cards; in a 4 column x 5 row style.
+Create array to store name and image of card; 
+The cards will have images on both the front (specificTeam) and back (genericBack).
+Game starts when user clicks on start button; timer starts
+When User clicks on card, it will flip over. User will then click another card causing it to flip over.
+Both cards will be asked if they are === 
+If yes, both cards will be pushed into newArray, and card img (genericFront) will be shown, player makes new choice
+If not equal, both cards will flip back to normal position, player makes new choice
+Check if win/loss conditions are met; if niether, repeat line 5
+User Wins if newArray === 20
+User Loses if timer reaches 0
+
+
+
 Define required constants
     current.Selection Object  
         will have 2 blank arrays
