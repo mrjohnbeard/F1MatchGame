@@ -1,116 +1,116 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-const teamNames = [
+    const teamNames = [
 
         {
             name: 'Alpha Romeo',
-            image: 'image/AlfaRomeo.png',
+            image: 'images/AlfaRomeo.png',
         },
         {
             name: 'Alpha Romeo',
-            image: 'image/AlfaRomeo.png',
+            image: 'images/AlfaRomeo.png',
         },
         {
             name: 'Alpha Tauri',
-            image: 'image/AlphaTauri.png',
+            image: 'images/AlphaTauri.png',
         },
         {
             name: 'Alpha Tauri',
-            image: 'image/AlphaTauri.png',
+            image: 'images/AlphaTauri.png',
         },
         {
             name: 'Alpine',
-            image: 'image/Alpine.png',
+            image: 'images/Alpine.png',
         },
         {
             name: 'Alpine',
-            image: 'image/Alpine.png',
+            image: 'images/Alpine.png',
         },
         {
             name: 'Aston Martin',
-            image: 'image/AstonMartin.png',
+            image: 'images/AstonMartin.png',
         },
         {
             name: 'Aston Martin',
-            image: 'image/AstonMartin.png',
+            image: 'images/AstonMartin.png',
         },
         {
             name: 'Ferrari',
-            image: 'image/Ferrari.png',
+            image: 'images/Ferrari.png',
         },
         {
             name: 'Ferrari',
-            image: 'image/Ferrari.png',
+            image: 'images/Ferrari.png',
         },
         {
             name: 'Haas',
-            image: 'image/Haas.png',
+            image: 'images/Haas.png',
         },
         {
             name: 'Haas',
-            image: 'image/Haas.png',
+            image: 'images/Haas.png',
         },
         {
             name: 'McLaren',
-            image: 'image/McLaren.png',
+            image: 'images/McLaren.png',
         },
         {
             name: 'McLaren',
-            image: 'image/McLaren.png',
+            image: 'images/McLaren.png',
         },
         {
             name: 'Mercedes',
-            image: 'image/Mercedes.png',
+            image: 'images/Mercedes.png',
         },
         {
             name: 'Mercedes',
-            image: 'image/Mercedes.png',
+            image: 'images/Mercedes.png',
         },
         {
             name: 'Red Bull',
-            image: 'image/Red_Bull.png',
+            image: 'images/Red_Bull.png',
         },
         {
             name: 'Red Bull',
-            image: 'image/Red_Bull.png',
+            image: 'images/Red_Bull.png',
         },
         {
             name: 'Willams',
-            image: 'image/Willams.png',
+            image: 'images/Williams.png',
         },
         {
             name: 'Willams',
-            image: 'image/Willams.png',
+            image: 'images/Williams.png',
         }
     ];
-teamNames.sort(() => 0.5 - Math.random())
-const board = document.querySelector('.gameBoard');
+    teamNames.sort(() => 0.5 - Math.random())
+    const board = document.querySelector('.gameBoard');
 
-var currentChoice = [];
-var currentChoiceId = [];
+    let currentChoice = [];
+    let currentChoiceId = [];
 
-function createBoard() { 
-    for (let i = 0; i < teamNames.length; i++) {
-        var card = document.createElement('img');
-        card.setAttribute('src', 'images/realLogo.png');
-        card.setAttribute('data-id', i);
-        card.addEventListener('click', flippedCard);
-        board.appendChild(card);
+    function createBoard() {
+        for (let i = 0; i < teamNames.length; i++) {
+            const card = document.createElement('img');
+            card.setAttribute('src', 'images/realLogo.png');
+            card.setAttribute('data-id', i);
+            card.addEventListener('click', flippedCard);
+            board.appendChild(card);
         }
     }
 
-function flippedCard(){
-    var cardId = this.getAttribute('data-id');
-    if (this.getAttribute('src') != 'images/fakeLogo.png'){
-        currentChoice.push(teamNames[cardId].name);
-        currentChoiceId.push(cardId);
-        this.setAttribute('src', teamNames[cardId].image);
+    function flippedCard() {
+        const cardId = this.getAttribute('data-id');
+        if (this.getAttribute('src') != 'images/fakeLogo.png') {
+            currentChoice.push(teamNames[cardId].name);
+            currentChoiceId.push(cardId);
+            this.setAttribute('src', teamNames[cardId].image);
         }
     }
 
     createBoard();
 
-})    
+})
 
 // Active Start game - Timer
 
