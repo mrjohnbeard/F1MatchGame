@@ -18,9 +18,24 @@
     height: 515px;
     width: 412px;
     border: dotted black;
+    
 }
 
 .gameBoard img {
     width: 103px;
     height: 103px;
 }
+
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+
+  .restart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+  }
