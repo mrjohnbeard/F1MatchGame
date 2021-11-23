@@ -2,13 +2,25 @@
     text-align: center;
 }
 
-.driverName {
+.teamName {
     text-align: center;
 }
 
-.grid {
-display: flex;
-flex-wrap: wrap;
-width: 400px;
-height: 500px;
+.gameContainer {
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gameBoard {
+    display: flex;
+    flex-wrap: wrap;
+    height: 515px;
+    width: 412px;
+    border: dotted black;
+}
+
+.gameBoard img {
+    width: 103px;
+    height: 103px;
 }
