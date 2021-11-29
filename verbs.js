@@ -105,9 +105,28 @@ document.addEventListener('DOMContentLoaded', () => {
             currentChoice.push(teamNames[cardId].name);
             currentChoiceId.push(cardId);
             this.setAttribute('src', teamNames[cardId].image);
+                if(currentChoice.length == 2) {
+                    setTimeout(checkMatch, 1000);
+                }
+
         }
     }
 
+    function checkMatch(){
+        const cards = document.querySelectorAll('img');
+        const firstChoice = currentChoiceId[0];
+        const secondChoice = currentChoiceId[1];
+            if(currentChoice[0] == currentChoice[1]){
+                cards [firstChoice].setAttribute('src', 'images/fakeLogo.png');
+                cards [secondChoice].setAttribute('src', 'images/fakeLogo.png');
+            } else{
+                cards [firstChoice].setAttribute('src', 'images/realLogo.png');
+                cards [secondChoice].setAttribute('src', 'images/realLogo.png');
+            }
+            
+            currentChoice = [];
+            currentChoiceId = [];
+    }
 
     createBoard();
 
