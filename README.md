@@ -2,17 +2,13 @@
 
 A README.md file with these sections:
 
-☐ <Your game's title>: A description of your game. Background info of the game is a nice touch.
+☐ Welcome to F1 Matching Game. A typical Memory game, with an F1 twist. After the start button is activated, you will have 1 minute to match the 10 F1 team logo's with one another. If you aren't able to match all 20 logos before the timer reaches 0, you will lose the race. Can you beat the clock before it expires? Goodluck!
 
 ☐ Screenshot(s): Images of your actual game.
 
-☐ Technologies Used: List of the technologies used, e.g., JavaScript, HTML, CSS...
+☐ JavaScript, HTML and CSS were used to in compliance with InternetLaws 2.0, article 4.
 
-☐ Getting Started: In this section include the link to your deployed game and any instructions you deem important.
+☐ https://mrjohnbeard.github.io/F1MatchGame/ -- Click the start button to begin the timer. You have 1 minute to match all cards. Start by choosing 2 cards. If cards match, a new F1 logo will take appear. If cards do not match, they will return face down, and original logo will take its place. You will be victorious if you can match all cards before the time runs out. Goodluck!
 
 ☐ Next Steps: Planned future enhancements (icebox items).
-
-Note: Don't underestimate the value of a well crafted README.md. The README.md introduces your project to prospective employers and forms their first impression of your work!
-
-☐ Frequent commits dating back to the very beginning of the project. Never delete you repo to "start over". Commit messages should be in the present tense, e.g., "Style game board" instead of "Styled game board". Be sure to create the repo on your personal GitHub account and ensure that it is "public".
 

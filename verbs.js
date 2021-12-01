@@ -83,12 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'images/Williams.png',
         }
     ];
+    const board = document.querySelector('.gameBoard');
+
     let isRunning = false;
     let time = 60;
+    let currentChoice = [];
+    let currentChoiceId = [];
+    let foundCards = [];
+    let pairsTotal = 10;
+
+    teamNames.sort(() => 0.5 - Math.random())
 
     function startTimer() {
         const countdownEl = document.getElementById('countdown');
-    
+
         setInterval(updateCountdown, 1000);
 
         function updateCountdown() {
@@ -101,17 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (time <= 0) {
                     countdownEl.innerHTML = "TIME IS OUT, YOU LOSE. PLEASE RESTART THE RACE."
                     clearInterval;
+                    isRunning = false;
                 }
             } else {
             }
         }
     }
-
-    teamNames.sort(() => 0.5 - Math.random())
-    const board = document.querySelector('.gameBoard');
-
-    let currentChoice = [];
-    let currentChoiceId = [];
 
     function createBoard() {
         for (let i = 0; i < teamNames.length; i++) {
@@ -124,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function flippedCard() {
-        if (currentChoice.length != 2) {
+        if (currentChoice.length != 2 && isRunning) {
             const cardId = this.getAttribute('data-id');
             if (this.getAttribute('src') != 'images/fakeLogo.png') {
                 currentChoice.push(teamNames[cardId].name);
@@ -141,7 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const cards = document.querySelectorAll('img');
         const firstChoice = currentChoiceId[0];
         const secondChoice = currentChoiceId[1];
+        const winnerEl = document.getElementById('winner');
         if (currentChoice[0] == currentChoice[1]) {
+            foundCards++;
             cards[firstChoice].setAttribute('src', 'images/fakeLogo.png');
             cards[secondChoice].setAttribute('src', 'images/fakeLogo.png');
         } else {
@@ -151,11 +156,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         currentChoice = [];
         currentChoiceId = [];
+        if (foundCards == pairsTotal) {
+            isRunning = false;
+            winnerEl.innerHTML = "YOU WON! Click Restart to play again!"
+        }
+    }
+
+    function resetTimer() {
+        const countdownEl = document.getElementById('countdown');
+        const winnerEl = document.getElementById('winner');
+        countdownEl.innerHTML = "1:00";
+        winnerEl.innerHTML = ""
+
+    }
+    function cleanBoard() {
+        let card = document.querySelectorAll('img');
+        for (let i = 0; i < card.length; i++) {
+            card[i].setAttribute('src', 'images/realLogo.png');
+        }
     }
 
     document.getElementById("startB").addEventListener("click", function () {
         if (isRunning) {
-
         } else {
             time = 60;
             startTimer();
@@ -163,26 +185,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
     document.getElementById("restartB").addEventListener("click", function () {
         resetTimer();
         isRunning = false;
-
-
-
+        cleanBoard();
 
 
     });
-
-    function resetTimer() {
-        const countdownEl = document.getElementById('countdown');
-        countdownEl.innerHTML = "1:00";
-    }
-
-
     createBoard();
-
-
 })
-
-// when all cards have realLogo, stop timer, declare winner
