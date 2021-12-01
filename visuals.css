@@ -26,22 +26,28 @@
     height: 103px;
 }
 
-.start {
+
+
+.gameContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.startB {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
-  }
-
-.restart {
+}
+.restartB {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10px;
-  }
-  
-  .gameContainer {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-  }
+}
