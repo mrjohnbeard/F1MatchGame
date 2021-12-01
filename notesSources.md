@@ -1,46 +1,35 @@
-This will be a memory game for solo play only. 
-Basic layout will be 20 cards on a game board, 10 sets of 2 of the same cards; in a 4 column x 5 row style.
-Create array to store name and image of card; 
-The cards will have images on both the front (specificTeam) and back (genericBack).
-Game starts when user clicks on start button; timer starts
-When User clicks on card, it will flip over. User will then click another card causing it to flip over.
-Both cards will be asked if they are === 
-If yes, both cards will be pushed into newArray, and card img (genericFront) will be shown, player makes new choice
-If not equal, both cards will flip back to normal position, player makes new choice
-Check if win/loss conditions are met; if niether, repeat line 5
-User Wins if newArray === 20
-User Loses if timer reaches 0
+Overall Status of Game
+
+isRunning - true or false state of the game; starting point
+time - timer used for win/loss logic; loss if reaches 0 
+teamNames - card information
+foundCards - used to store info for win condition, compared with pairsTotal
+pairsTotal - counter used for win/loss logic;
+
+Selections
+currentChoice - current card clicked
+currentChoiceId - ID used to check if cards match
 
 
+Functions
+
+startTimer - starts the time
+updateCountdown - intervals for the time
+createBoard - creates the cards, based on # of teamNames
+flippedCard - when card is CLICKED, IMG is shown and stored
+checkMatch - checks IDs for match, adds foundCard if yes, returns cards id no; check if win condition is met; continue flipping
+resetTimer - resets time back to baseline
+cleanBoard - replaces all IDs IMGs back to baseline
+
+Buttons
+
+startB - starts time, isRunning becomes true, cards can be flipped; game starts
+restartB - resets time, isRunning becomes false, cleans board for new game
 
 
-Define required constants
-    current.Selection Object  
-        will have 2 blank arrays
-        which stores data on user.Click 
-    face.Up Object
-        will store already matched cards
-        will be used to determine if game has been won yet
-    cards. Object
-        will store image of teamName
-        all will start face.Down
-    Win Condition
-        if all cards are faced up; and timer does not equal 0
-    Lose Condition
-        if timer reaches 0
+Wire Frame 
 
-Define required variables to track the state of the game
-    Keep track of current.Selection
-        if both arrays in current.Selection are equal
-            then keep both cards and send to face.Up
-            else; return to face.Down position
-    Loop
-        check if all cards are faced up
-        if not, continue to next player selection
-
-When card is clicked
-    An add event listener that stores input to current.Selection
-       
-        
-
-
+Title of Game
+Timer
+Game Area
+Buttons
