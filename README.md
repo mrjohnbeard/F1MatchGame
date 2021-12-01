@@ -2,11 +2,11 @@
 
 ☐ Welcome to F1 Matching Game. A typical Memory game, with an F1 twist. After the start button is activated, you will have 1 minute to match the 10 F1 team logo's with one another. If you aren't able to match all 20 logos before the timer reaches 0, you will lose the race. Can you beat the clock before it expires? Goodluck!
 
-☐ Start <img src="https://imgur.com/a/YWDlW7O">
+☐ Start <img src="(https://imgur.com/a/YWDlW7O)">
 
-☐ Won <img src="https://imgur.com/a/JpFxHKc">
+☐ Won <img src="(https://imgur.com/a/JpFxHKc)">
 
-☐ Loss  <img src="https://imgur.com/a/lawQddj">
+☐ Loss  <img src="(https://imgur.com/a/lawQddj)">
 
 ☐ JavaScript, HTML and CSS were used to in compliance with InternetLaws 2.0, article 4.
 
