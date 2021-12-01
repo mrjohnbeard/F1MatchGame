@@ -83,6 +83,30 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'images/Williams.png',
         }
     ];
+    let isRunning = false;
+    let time = 60;
+
+    function startTimer() {
+        const countdownEl = document.getElementById('countdown');
+    
+        setInterval(updateCountdown, 1000);
+
+        function updateCountdown() {
+            if (isRunning) {
+                const minutes = Math.floor(time / 60);
+                let seconds = time % 60;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+                countdownEl.innerHTML = `${minutes}:${seconds}`;
+                time--;
+                if (time <= 0) {
+                    countdownEl.innerHTML = "TIME IS OUT, YOU LOSE. PLEASE RESTART THE RACE."
+                    clearInterval;
+                }
+            } else {
+            }
+        }
+    }
+
     teamNames.sort(() => 0.5 - Math.random())
     const board = document.querySelector('.gameBoard');
 
@@ -100,43 +124,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function flippedCard() {
-        const cardId = this.getAttribute('data-id');
-        if (this.getAttribute('src') != 'images/fakeLogo.png') {
-            currentChoice.push(teamNames[cardId].name);
-            currentChoiceId.push(cardId);
-            this.setAttribute('src', teamNames[cardId].image);
-                if(currentChoice.length == 2) {
+        if (currentChoice.length != 2) {
+            const cardId = this.getAttribute('data-id');
+            if (this.getAttribute('src') != 'images/fakeLogo.png') {
+                currentChoice.push(teamNames[cardId].name);
+                currentChoiceId.push(cardId);
+                this.setAttribute('src', teamNames[cardId].image);
+                if (currentChoice.length == 2) {
                     setTimeout(checkMatch, 1000);
                 }
-
+            }
         }
     }
 
-    function checkMatch(){
+    function checkMatch() {
         const cards = document.querySelectorAll('img');
         const firstChoice = currentChoiceId[0];
         const secondChoice = currentChoiceId[1];
-            if(currentChoice[0] == currentChoice[1]){
-                cards [firstChoice].setAttribute('src', 'images/fakeLogo.png');
-                cards [secondChoice].setAttribute('src', 'images/fakeLogo.png');
-            } else{
-                cards [firstChoice].setAttribute('src', 'images/realLogo.png');
-                cards [secondChoice].setAttribute('src', 'images/realLogo.png');
-            }
-            
-            currentChoice = [];
-            currentChoiceId = [];
+        if (currentChoice[0] == currentChoice[1]) {
+            cards[firstChoice].setAttribute('src', 'images/fakeLogo.png');
+            cards[secondChoice].setAttribute('src', 'images/fakeLogo.png');
+        } else {
+            cards[firstChoice].setAttribute('src', 'images/realLogo.png');
+            cards[secondChoice].setAttribute('src', 'images/realLogo.png');
+        }
+
+        currentChoice = [];
+        currentChoiceId = [];
     }
+
+    document.getElementById("startB").addEventListener("click", function () {
+        if (isRunning) {
+
+        } else {
+            time = 60;
+            startTimer();
+            isRunning = true;
+        }
+    });
+
+
+    document.getElementById("restartB").addEventListener("click", function () {
+        resetTimer();
+        isRunning = false;
+
+
+
+
+
+    });
+
+    function resetTimer() {
+        const countdownEl = document.getElementById('countdown');
+        countdownEl.innerHTML = "1:00";
+    }
+
 
     createBoard();
 
+
 })
 
-// Active Start game - Timer
-
-// If cardMatch is true, they will remain face up until the game is over. Player continues selection.
-// If cardMatch is false, they will return to their face down postion. Player continues selection.
-
-
-// Player wins if no cards are facing down; *and the timer has not reached 0* 
-// Player loses if timer reaches 0.
+// when all cards have realLogo, stop timer, declare winner
